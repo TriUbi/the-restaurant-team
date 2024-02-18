@@ -1,3 +1,3 @@
 export const Booking = () => {
-    return<>hello</>
+    return<>Booking!</>
 }
