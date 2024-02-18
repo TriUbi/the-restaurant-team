@@ -50,7 +50,7 @@ export const Admin = () => {
                   </div>
                   <div>
                     <input
-                      type="text"
+                      type="password"
                       placeholder="Lösenord"
                       value={password}
                       onChange={(e: ChangeEvent<HTMLInputElement>) =>
