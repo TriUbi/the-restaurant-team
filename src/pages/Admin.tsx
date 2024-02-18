@@ -1,3 +1,3 @@
 export const Admin = () => {
-    return<>hello</>
+    return<>Admin!</>
 }
