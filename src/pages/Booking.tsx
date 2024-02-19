@@ -15,7 +15,8 @@ export const Booking = () => {
   const [userInputNumber, setUserInputNumber] = useState("");
 
   const [chosenTime, setChosenTime] = useState("");
-  const [timesButton, setTimesButton] = useState(false);
+  const [time18Button, setTime18Button] = useState(false);
+  const [time21Button, setTime21Button] = useState(false);
   const [ShowForm, setShowForm] = useState(true);
   const [showCustomerForm, setShowCustomerForm] = useState(false);
   const [showBookedMessage, setShowBookedMessage] = useState(false);
@@ -51,7 +52,34 @@ export const Booking = () => {
     console.log(dateString);
   };
   const CheckIfAvailableTables = () => {
-    setTimesButton(true);
+    let amountOfTables = 15;
+
+    let checkDate = date;
+    let bookedTablesat18 = 0;
+    let bookedTablesat21 = 0;
+
+    for (let i = 0; i < bookings.length; i++) {
+      const order = bookings[i];
+
+      if (order.date === checkDate && order.time === "18:00") {
+        bookedTablesat18++;
+      }
+      if (order.date === checkDate && order.time === "21:00") {
+        bookedTablesat21++;
+      }
+    }
+    if (bookedTablesat18 < amountOfTables) {
+      setTime18Button(true);
+      console.log("available tables");
+    } else {
+      console.log("Its fully booked");
+    }
+    if (bookedTablesat21 < amountOfTables) {
+      setTime21Button(true);
+      console.log("available tables");
+    } else {
+      console.log("Its fully booked");
+    }
   };
   const CancelBooking = () => {
     setDate("");
@@ -59,7 +87,8 @@ export const Booking = () => {
     setUserInputNumber("");
     setShowCustomerForm(false);
     setShowForm(true);
-    setTimesButton(false)
+    setTime18Button(false);
+    setTime21Button(false);
   };
 
   const NavigateToHomePage = () => {
@@ -152,22 +181,28 @@ export const Booking = () => {
               </form>
               <hr />
               <section className="times-section">
-                {timesButton && (
-                  <div className="times-div">
-                    <button
-                      className="time-btn"
-                      onClick={() => chosenTimeToEat("18:00")}
-                    >
-                      18:00
-                    </button>
-                    <button
-                      className="time-btn"
-                      onClick={() => chosenTimeToEat("21:00")}
-                    >
-                      21:00
-                    </button>
-                  </div>
-                )}
+                <div className="times-div">
+                  {time18Button && (
+                    <div>
+                      <button
+                        className="time-btn"
+                        onClick={() => chosenTimeToEat("18:00")}
+                      >
+                        18:00
+                      </button>
+                    </div>
+                  )}
+                  {time21Button && (
+                    <div>
+                      <button
+                        className="time-btn"
+                        onClick={() => chosenTimeToEat("21:00")}
+                      >
+                        21:00
+                      </button>
+                    </div>
+                  )}
+                </div>
               </section>
             </div>
           )}
