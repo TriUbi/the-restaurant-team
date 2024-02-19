@@ -59,6 +59,7 @@ export const Booking = () => {
     setUserInputNumber("");
     setShowCustomerForm(false);
     setShowForm(true);
+    setTimesButton(false)
   };
 
   const NavigateToHomePage = () => {
