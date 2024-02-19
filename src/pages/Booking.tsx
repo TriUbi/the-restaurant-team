@@ -53,6 +53,13 @@ export const Booking = () => {
   const CheckIfAvailableTables = () => {
     setTimesButton(true);
   };
+  const CancelBooking = () => {
+    setDate("");
+    setChosenTime("");
+    setUserInputNumber("");
+    setShowCustomerForm(false);
+    setShowForm(true);
+  };
 
   const NavigateToHomePage = () => {
     window.location.href = "/";
@@ -244,7 +251,9 @@ export const Booking = () => {
                     <button className="next-button" onClick={CreateBooking}>
                       Slutför
                     </button>
-                    <button className="next-button">Avbryt</button>
+                    <button className="next-button" onClick={CancelBooking}>
+                      Avbryt
+                    </button>
                   </div>
                 </div>
               </form>
