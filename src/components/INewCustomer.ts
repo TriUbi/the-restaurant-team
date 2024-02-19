@@ -1,6 +1,6 @@
 export interface INewCustomer{
     name:string;
-    lastname:string;
+    lastName:string;
     email:string;
     phone:string;
 }

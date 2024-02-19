@@ -1,15 +1,14 @@
-import "./../styles/_Navigation.scss"
+import "./../styles/_Navigation.scss";
 import { Outlet } from "react-router-dom";
-import { Navigation } from "./../components/Navigation"
 
 export const Layout = () => {
-    return  (
+  return (
     <>
-        <header>
-            <Navigation/>
-        </header>
-        <main><Outlet/></main>
-        <footer>Social media stuff</footer>
+      <header></header>
+      <main>
+        <Outlet />
+      </main>
+      <footer>Social media stuff</footer>
     </>
-    );
+  );
 };
