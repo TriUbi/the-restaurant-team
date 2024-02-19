@@ -1,4 +1,4 @@
-export interface INewCustomer{
+export interface INewUser{
     name:string;
     lastName:string;
     email:string;
