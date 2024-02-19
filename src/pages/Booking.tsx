@@ -5,8 +5,8 @@ import bild from "./../assets/SidePicBooking.png";
 
 import axios from "axios";
 import { IBooking } from "../components/IBooking";
-import { User } from "../components/User";
-import { INewUser } from "../components/INewUser";
+import { Customer } from "../components/Customer";
+import { INewCustomer } from "../components/INewCustomer";
 import Calendar from "react-calendar";
 
 export const Booking = () => {
@@ -21,7 +21,7 @@ export const Booking = () => {
   const [showCustomerForm, setShowCustomerForm] = useState(false);
   const [showBookedMessage, setShowBookedMessage] = useState(false);
 
-  const [newCustomer, setNewCustomer] = useState<INewUser>({
+  const [newCustomer, setNewCustomer] = useState<INewCustomer>({
     name: "",
     lastName: "",
     email: "",
@@ -98,7 +98,7 @@ export const Booking = () => {
   const CreateBooking = () => {
     setShowBookedMessage(true);
     setShowCustomerForm(false);
-    let user = new User(
+    let customer = new Customer(
       newCustomer.name,
       newCustomer.lastName,
       newCustomer.email,
@@ -109,7 +109,7 @@ export const Booking = () => {
       date: date,
       time: chosenTime,
       numberOfGuests: parseInt(userInputNumber),
-      user,
+      customer,
     };
     const getData = async () => {
       try {

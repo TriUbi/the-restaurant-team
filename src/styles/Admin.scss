@@ -4,28 +4,46 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: grey;
+}
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+.container-div {
+  height: 400px;
+  width: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .input-div {
+    border: 1px solid black;
+    height: 150px;
+    width: 400px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
 }
 
-.adminPageContainer{
-  background-color: grey;
+.btn-div {
+  text-align: center;
+  padding-top: 10px;
+  .btn {
+    height: 40px;
+    width: 100px;
+  }
 }
-
-button{
-  background-color: #c50c0c;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+li {
+  list-style: none;
+  padding: 10px;
 }
-
-button:hover{
-  background-color:#871919 ;
-}
-
-
-footer{
-  background-color: grey;
+.li-div {
+  border: 1px solid black;
+  padding: 5px;
 }
