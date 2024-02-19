@@ -18,6 +18,7 @@ export const Booking = () => {
   const [timesButton, setTimesButton] = useState(false);
   const [ShowForm, setShowForm] = useState(true);
   const [showCustomerForm, setShowCustomerForm] = useState(false);
+  const [showBookedMessage, setShowBookedMessage] = useState(false);
 
   const [newCustomer, setNewCustomer] = useState<INewCustomer>({
     name: "",
@@ -53,7 +54,13 @@ export const Booking = () => {
     setTimesButton(true);
   };
 
+  const NavigateToHomePage = () => {
+    window.location.href = "/";
+  };
+
   const CreateBooking = () => {
+    setShowBookedMessage(true);
+    setShowCustomerForm(false);
     let customer = new Customer(
       newCustomer.name,
       newCustomer.lastName,
@@ -242,6 +249,20 @@ export const Booking = () => {
                 </div>
               </form>
             </div>
+          )}
+          {showBookedMessage && (
+            <>
+              <div className="input-div">
+                <p className="end-message">
+                  Din bokning är nu skapad! Vi ser fram emot erat besök.
+                </p>
+              </div>
+              <div className="input-div">
+                <button className="time-btn" onClick={NavigateToHomePage}>
+                  Till Start
+                </button>
+              </div>
+            </>
           )}
         </div>
         <div className="picdiv">
