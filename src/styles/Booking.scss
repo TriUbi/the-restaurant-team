@@ -129,8 +129,7 @@
   font-size: 20px;
 }
 .next-button:hover {
-  height: 45px;
-  width: 140px;
+  cursor: pointer;
   background-color: lightgrey;
   color: black;
 }
@@ -291,11 +290,17 @@
   background-color: #e6e6e6;
 }
 .time-btn {
-  height: 70px;
+  cursor: pointer;
+  height: 55px;
   width: 120px;
   background-color: #706e6e;
   color: white;
   font-size: 20px;
+  border-radius: 8px;
+}
+.time-btn:hover {
+  background-color: whitesmoke;
+  color: black;
 }
 .times-div {
   display: flex;

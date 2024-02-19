@@ -114,7 +114,7 @@ export const Booking = () => {
                   type="number"
                   min={1}
                   max={6}
-                  placeholder="Ange antalet 1-6"
+                  placeholder="Ange antalet gäster 1-6"
                   value={userInputNumber}
                   onChange={(e: ChangeEvent<HTMLInputElement>) => {
                     setUserInputNumber(e.target.value);
