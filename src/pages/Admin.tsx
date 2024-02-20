@@ -6,6 +6,7 @@ import { Bookings } from "../models/Booking";
 
 export const Admin = () => {
   const restaurantID = "65cdf38894d2af1c6aeae91d";
+
   const [bookings, setBookings] = useState<IBooking[]>([]);
   const [showAdmin, setShowAdmin] = useState(false);
   const [showButton, setShowButton] = useState(true);
@@ -68,7 +69,7 @@ export const Admin = () => {
       customerId: bookingToUpdate.customerId,
     });
 
-    let updatedBookingData = {
+    const updatedBookingData = {
       id: bookingToUpdate,
       restaurantId: restaurantID,
       date: updatedBooking.date,
@@ -95,6 +96,14 @@ export const Admin = () => {
     setShowBookingDone(true);
   };
 
+  const handleTimeChange = (time: string) => {
+    setUpdatedBooking({ ...updatedBooking, time });
+  };
+  
+  const handleUpdateBooking = () => {
+    sendChangedData(bookingToUpdate._id);
+  };
+  
   return (
     <>
       <div className="body">
@@ -113,7 +122,7 @@ export const Admin = () => {
                 </div>
                 <div>
                   <div>
-                    <input
+                    <input className="input-admin"
                       type="text"
                       placeholder="Användarnamn"
                       value={userName}
@@ -123,7 +132,7 @@ export const Admin = () => {
                     />
                   </div>
                   <div>
-                    <input
+                    <input className="input-admin"
                       type="password"
                       placeholder="Lösenord"
                       value={password}
@@ -167,7 +176,7 @@ export const Admin = () => {
           </div>
         )}
         {showChange && (
-          <div>
+          <div className="update">
             <p>Choose another date:</p>
             <input
               type="date"
@@ -177,13 +186,8 @@ export const Admin = () => {
               }
             />
             Choose different time:
-            <input
-              type="text"
-              value={updatedBooking.time}
-              onChange={(e) =>
-                setUpdatedBooking({ ...updatedBooking, time: e.target.value })
-              }
-            />
+            <button className="Btn" onClick={() => handleTimeChange("18:00")}>18:00</button>
+            <button className="Btn" onClick={() => handleTimeChange("21:00")}>21:00</button>
             Choose amount of guests:
             <input
               type="number"
@@ -195,7 +199,7 @@ export const Admin = () => {
                 })
               }
             />
-            <button>Update Booking</button>
+            <button onClick={handleUpdateBooking}>Update Booking</button>
           </div>
         )}
       </div>

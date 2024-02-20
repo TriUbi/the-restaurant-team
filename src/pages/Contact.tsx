@@ -36,7 +36,7 @@ export function Contact() {
 
         const customercontact = new Customer(newContact.name, newContact.lastname, newContact.email, newContact.phone)
 
-        axios.post("https://school-restaurant-api.azurewebsites.net/customer/create/65cdf38894d2af1c6aeae91d", customercontact, { headers: { "content-type": "application/json" } })
+        axios.post("https://school-restaurant-api.azurewebsites.net/customer/create", customercontact, { headers: { "content-type": "application/json" } })
             .then(() => {
                 setMessageSend(true)
                 setNewContact({
