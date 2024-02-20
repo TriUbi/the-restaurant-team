@@ -2,9 +2,10 @@ import bannerVideo from '../video-banner/banner-video.mp4';
 import '../styles/Home.scss'; 
 
 
+
 export const Home = () => {
     return <>
-    
+  
      <div className='container'>
         <div className='overlay'></div>
          <video src={bannerVideo} autoPlay loop muted playsInline />

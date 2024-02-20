@@ -1,6 +1,5 @@
 nav{
-    padding-right: 50px;
-    margin-top: 50px;
+    padding: 30px;
     width: 150px ;
     ul{
         list-style: none;
@@ -14,11 +13,13 @@ nav{
         .active{
             border-bottom: 2px solid white;
             padding: 2px;
+            cursor: pointer;
         }
     }
     a{
         text-decoration: none;
         color: aliceblue;
+        
     }
 }
 
@@ -34,8 +35,14 @@ h1{
     width: 100%;
     display: flex;
     justify-content: space-between;
-    background-color: rgb(40, 39, 39);
-    position: absolute;
+    
+    position: fixed;
     left: 0;
     top: 0;
+    z-index: 2;
+}
+
+img {
+    width: 100px;
+    align-items: center;
 }
