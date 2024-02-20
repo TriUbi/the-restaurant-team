@@ -6,9 +6,9 @@ export const Home = () => {
     return <>
     
      <div className='container'>
+        <div className='overlay'></div>
          <video src={bannerVideo} autoPlay loop muted playsInline />
         <div className='content'>
-            
         <h1>Welcome to TastyBurger: Where Burger Dreams Come True!</h1>
         <p>Book a table for dinner & elevate your dining experience with us. Book now and savor the moment</p>
          <a href="#">RESERVE NOW!</a>
@@ -19,7 +19,7 @@ export const Home = () => {
         </div>
     <section className='main-section'>
        
-        <div>
+        <div className='main-section-container'>
             <div className='main-text-content'>
                 <h3>Welcome!</h3>
                 <p>TastyBurger is Sweden's oldest burger chain!
