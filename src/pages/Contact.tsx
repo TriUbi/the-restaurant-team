@@ -57,23 +57,27 @@ export function Contact() {
     return (
         <main>
             <div className="Body">
-                <h1 className="Contact-Header">Tasty Burger</h1>
-                <h3 className="jaja">Fyll i dina uppgifter så kontaktar vi dig</h3>
+                <div className="contact-box">
+                    <div className="left">
+                    </div>
+                 <div className="right">
+                <h2>Tasty Burger</h2>
+                <h4>Fyll i dina uppgifter så kontaktar vi dig</h4>
                 <form>
                     <div>
                     
-                        <input type="text" name="name" value={newContact.name} onChange={handleChange} placeholder="Förnamn"></input>
+                        <input type="text" className="field" name="name" value={newContact.name} onChange={handleChange} placeholder="Förnamn"></input>
                     </div>
                     <div>
                     
-                        <input type="text" name="lastname" value={newContact.lastname} onChange={handleChange} placeholder="Efternamn"></input>
+                        <input type="text" className="field" name="lastname" value={newContact.lastname} onChange={handleChange} placeholder="Efternamn"></input>
                     </div>
                     <div>
                    
-                        <input type="email" name="email" value={newContact.email} onChange={handleChange} placeholder="E-post" ></input>
+                        <input type="email" className="field" name="email" value={newContact.email} onChange={handleChange} placeholder="E-post" ></input>
                     </div>
                     <div>
-                        <input type="text" name="phone" value={newContact.phone} onChange={handleChange} placeholder="Telefon"></input>
+                        <input type="text" className="field" name="phone" value={newContact.phone} onChange={handleChange} placeholder="Telefon"></input>
                     </div>
                     <button type="button" className="sendBtn" onClick={handleSubmit} >SKICKA</button>
                 </form>
@@ -82,6 +86,8 @@ export function Contact() {
                 </div>
             
                 {messageSend && <div>Ditt meddelande är skickat!</div>}
+                </div>
+            </div>
             </div>
         </main>)
 }
