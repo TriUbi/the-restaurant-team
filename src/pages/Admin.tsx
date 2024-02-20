@@ -17,14 +17,7 @@ export const Admin = () => {
 
   const [showChange, setShowChange] = useState(false);
   const [showChangedMessage, setShowChangedMessage] = useState(false);
-  const [bookingToUpdate, setBookingToUpdate] = useState<IBooking>({
-    _id: "",
-    restaurantId: restaurantID,
-    date: "",
-    time: "",
-    numberOfGuests: 0,
-    customerId: "",
-  });
+
   const [updatedBooking, setUpdatedBooking] = useState<IBooking>({
     _id: "",
     restaurantId: restaurantID,
