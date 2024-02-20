@@ -11,6 +11,10 @@ import Calendar from "react-calendar";
 
 export const Booking = () => {
   const restaurantID = "65cdf38894d2af1c6aeae91d";
+
+  /////////////////// States ////////////////////
+
+
   const [date, setDate] = useState("");
   const [userInputNumber, setUserInputNumber] = useState("");
 
@@ -20,6 +24,9 @@ export const Booking = () => {
   const [ShowForm, setShowForm] = useState(true);
   const [showCustomerForm, setShowCustomerForm] = useState(false);
   const [showBookedMessage, setShowBookedMessage] = useState(false);
+  const [showErrorForInput, setShowErrorForInput] = useState(false);
+  const [showErrorForDate, setShowErrorForDate] = useState(false);
+  const [showErrorForCustomer, setShowErrorForCustomer] = useState(false);
 
   const [newCustomer, setNewCustomer] = useState<INewCustomer>({
     name: "",
@@ -28,6 +35,9 @@ export const Booking = () => {
     phone: "",
   });
   const [bookings, setBookings] = useState<IBooking[]>([]);
+
+
+  //////////////// Hämta alla bokningar från API ////////////////////
 
   useEffect(() => {
     axios
@@ -38,7 +48,9 @@ export const Booking = () => {
         setBookings([...response.data]);
       });
   }, []);
-
+  /////////////////////////////////////////////////////////////////
+  //////////////// Skapande av alla funktioner ////////////////////
+  /////////////////////////////////////////////////////////////////
   const chosenTimeToEat = (time: string) => {
     setChosenTime(time);
     setShowForm(false);
@@ -51,36 +63,59 @@ export const Booking = () => {
     setDate(dateString);
     console.log(dateString);
   };
+  // Kollar lediga bord samt validering och felmeddelande
   const CheckIfAvailableTables = () => {
-    let amountOfTables = 15;
+    if (userInputNumber === "" && date === "") {
+      setShowErrorForInput(true);
+      setShowErrorForDate(true);
+      setTime18Button(false);
+      setTime21Button(false);
+    } else if (userInputNumber === "") {
+      setShowErrorForInput(true);
+      setShowErrorForDate(false);
+      setTime18Button(false);
+      setTime21Button(false);
+    } else if (date === "") {
+      setShowErrorForDate(true);
+      setShowErrorForInput(false);
 
-    let checkDate = date;
-    let bookedTablesat18 = 0;
-    let bookedTablesat21 = 0;
-
-    for (let i = 0; i < bookings.length; i++) {
-      const order = bookings[i];
-
-      if (order.date === checkDate && order.time === "18:00") {
-        bookedTablesat18++;
-      }
-      if (order.date === checkDate && order.time === "21:00") {
-        bookedTablesat21++;
-      }
-    }
-    if (bookedTablesat18 < amountOfTables) {
-      setTime18Button(true);
-      console.log("available tables");
+      setTime18Button(false);
+      setTime21Button(false);
     } else {
-      console.log("Its fully booked");
-    }
-    if (bookedTablesat21 < amountOfTables) {
-      setTime21Button(true);
-      console.log("available tables");
-    } else {
-      console.log("Its fully booked");
+      setShowErrorForDate(false);
+      setShowErrorForInput(false);
+      let amountOfTables = 15;
+
+      let checkDate = date;
+      let bookedTablesat18 = 0;
+      let bookedTablesat21 = 0;
+
+      for (let i = 0; i < bookings.length; i++) {
+        const order = bookings[i];
+
+        if (order.date === checkDate && order.time === "18:00") {
+          bookedTablesat18++;
+        }
+        if (order.date === checkDate && order.time === "21:00") {
+          bookedTablesat21++;
+        }
+      }
+      if (bookedTablesat18 < amountOfTables) {
+        setTime18Button(true);
+        console.log("available tables");
+      } else {
+        console.log("Its fully booked");
+      }
+      if (bookedTablesat21 < amountOfTables) {
+        setTime21Button(true);
+        console.log("available tables");
+      } else {
+        console.log("Its fully booked");
+      }
     }
   };
+
+  // funktion för att avbryta bokning
   const CancelBooking = () => {
     setDate("");
     setChosenTime("");
@@ -94,38 +129,47 @@ export const Booking = () => {
   const NavigateToHomePage = () => {
     window.location.href = "/";
   };
-
+    // Skapa bokning på "Slutför" knappen
   const CreateBooking = () => {
-    setShowBookedMessage(true);
-    setShowCustomerForm(false);
-    let customer = new Customer(
-      newCustomer.name,
-      newCustomer.lastName,
-      newCustomer.email,
-      newCustomer.phone
-    );
-    const payload = {
-      restaurantId: restaurantID,
-      date: date,
-      time: chosenTime,
-      numberOfGuests: parseInt(userInputNumber),
-      customer,
-    };
-    const getData = async () => {
-      try {
-        const response = await axios.post(
-          "https://school-restaurant-api.azurewebsites.net/booking/create",
+    if (
+      newCustomer.name === "" ||
+      newCustomer.lastName === "" ||
+      newCustomer.email === "" ||
+      newCustomer.phone === ""
+    ) {
+      setShowErrorForCustomer(true);
+    } else {
+      setShowBookedMessage(true);
+      setShowCustomerForm(false);
+      let customer = new Customer(
+        newCustomer.name,
+        newCustomer.lastName,
+        newCustomer.email,
+        newCustomer.phone
+      );
+      const payload = {
+        restaurantId: restaurantID,
+        date: date,
+        time: chosenTime,
+        numberOfGuests: parseInt(userInputNumber),
+        customer,
+      };
+      const getData = async () => {
+        try {
+          const response = await axios.post(
+            "https://school-restaurant-api.azurewebsites.net/booking/create",
 
-          payload
-        );
-        console.log(response);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    getData();
+            payload
+          );
+          console.log(response);
+        } catch (error) {
+          console.log(error);
+        }
+      };
+      getData();
+    }
   };
-
+  /////////////////////////////// HTML struktur för Bookingsidan ////////////////////////////
   return (
     <>
       <div className="body">
@@ -164,6 +208,11 @@ export const Booking = () => {
                     setUserInputNumber(e.target.value);
                   }}
                 />
+                {showErrorForInput && (
+                  <div className="error-message">
+                    Vänligen ange antalet gäster
+                  </div>
+                )}
 
                 <div className="calendar-div">
                   <Calendar
@@ -171,6 +220,9 @@ export const Booking = () => {
                     value={date}
                   />
                 </div>
+                {showErrorForDate && (
+                  <div className="error-message">Vänligen ange datum</div>
+                )}
                 <hr />
                 <button
                   className="next-button"
@@ -226,6 +278,12 @@ export const Booking = () => {
                 }}
               >
                 <div className="form-div">
+                  {showErrorForCustomer && (
+                    <div className="error-message">
+                      Vänligen fyll i alla fälten
+                    </div>
+                  )}
+
                   <div className="input-div">
                     <input
                       className="input-text"
@@ -283,6 +341,7 @@ export const Booking = () => {
                       }
                     />
                   </div>
+
                   <div className="yeye">
                     <button className="next-button" onClick={CreateBooking}>
                       Slutför
