@@ -4,9 +4,9 @@ import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import bild from "./../assets/SidePicBooking.png";
 
 import axios from "axios";
-import { IBooking } from "../components/IBooking";
-import { Customer } from "../components/Customer";
-import { INewCustomer } from "../components/INewCustomer";
+import { IBooking } from "../models/IBooking";
+import { Customer } from "../models/Customer";
+import { INewCustomer } from "../models/INewCustomer";
 import Calendar from "react-calendar";
 
 export const Booking = () => {
