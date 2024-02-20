@@ -57,33 +57,37 @@ export const Admin = () => {
       setShowLogIn(false);
     }
   };
-  const handleBookingChange = () => {
+  const handleBookingChange = (bookingID: string, CustomerID: string) => {
     setShowChange(true);
     setShowAdmin(false);
-  };
-
-  const sendChangedData = async (bookingID: string) => {
     setUpdatedBooking({
       ...updatedBooking,
-      _id: bookingToUpdate._id,
-      customerId: bookingToUpdate.customerId,
+      _id: bookingID,
+      customerId: CustomerID,
     });
+  };
 
+  const sendChangedData = async () => {
     const updatedBookingData = {
-      id: bookingToUpdate,
+      id: updatedBooking._id,
       restaurantId: restaurantID,
       date: updatedBooking.date,
       time: updatedBooking.time,
       numberOfGuests: updatedBooking.numberOfGuests,
-      customerId: bookingToUpdate.customerId,
+      customerId: updatedBooking.customerId,
     };
 
     const response = await axios.put(
       "https://school-restaurant-api.azurewebsites.net/booking/update/" +
-        bookingID,
+        updatedBookingData.id,
       updatedBookingData
     );
+    
+
+    setShowAdmin(true);
+    setShowChange(false);
   };
+  ///// Removes a booking //////
   const handleRemoveBooking = async (bookingID: string) => {
     const response = await axios.delete(
       "https://school-restaurant-api.azurewebsites.net/booking/delete/" +
@@ -95,15 +99,12 @@ export const Admin = () => {
 
     setShowBookingDone(true);
   };
+  ///////////////////////////////////////////////////////////////
 
   const handleTimeChange = (time: string) => {
     setUpdatedBooking({ ...updatedBooking, time });
   };
-  
-  const handleUpdateBooking = () => {
-    sendChangedData(bookingToUpdate._id);
-  };
-  
+
   return (
     <>
       <div className="body">
@@ -122,7 +123,8 @@ export const Admin = () => {
                 </div>
                 <div>
                   <div>
-                    <input className="input-admin"
+                    <input
+                      className="input-admin"
                       type="text"
                       placeholder="Användarnamn"
                       value={userName}
@@ -132,7 +134,8 @@ export const Admin = () => {
                     />
                   </div>
                   <div>
-                    <input className="input-admin"
+                    <input
+                      className="input-admin"
                       type="password"
                       placeholder="Lösenord"
                       value={password}
@@ -158,8 +161,7 @@ export const Admin = () => {
                 return (
                   <div key={allBookings._id} className="li-div">
                     <li key={allBookings._id}>
-                      Booking ID:{allBookings._id} CustomerID:
-                      {allBookings.customerId} Date: {allBookings.date} Time:
+                      Date: {allBookings.date} Time:
                       {allBookings.time} Guests:{allBookings.numberOfGuests}
                     </li>
 
@@ -168,7 +170,16 @@ export const Admin = () => {
                     >
                       Remove
                     </button>
-                    <button onClick={handleBookingChange}>Change info</button>
+                    <button
+                      onClick={() =>
+                        handleBookingChange(
+                          allBookings._id,
+                          allBookings.customerId
+                        )
+                      }
+                    >
+                      Change info
+                    </button>
                   </div>
                 );
               })}
@@ -186,8 +197,12 @@ export const Admin = () => {
               }
             />
             Choose different time:
-            <button className="Btn" onClick={() => handleTimeChange("18:00")}>18:00</button>
-            <button className="Btn" onClick={() => handleTimeChange("21:00")}>21:00</button>
+            <button className="Btn" onClick={() => handleTimeChange("18:00")}>
+              18:00
+            </button>
+            <button className="Btn" onClick={() => handleTimeChange("21:00")}>
+              21:00
+            </button>
             Choose amount of guests:
             <input
               type="number"
@@ -199,7 +214,7 @@ export const Admin = () => {
                 })
               }
             />
-            <button onClick={handleUpdateBooking}>Update Booking</button>
+            <button onClick={sendChangedData}>Update Booking</button>
           </div>
         )}
       </div>
