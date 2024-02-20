@@ -16,6 +16,7 @@ export const Admin = () => {
   const [showBookingDone, setShowBookingDone] = useState(true);
 
   const [showChange, setShowChange] = useState(false);
+  const [showChangedMessage, setShowChangedMessage] = useState(false);
   const [bookingToUpdate, setBookingToUpdate] = useState<IBooking>({
     _id: "",
     restaurantId: restaurantID,
@@ -82,9 +83,8 @@ export const Admin = () => {
         updatedBookingData.id,
       updatedBookingData
     );
-    
 
-    setShowAdmin(true);
+    setShowChangedMessage(true);
     setShowChange(false);
   };
   ///// Removes a booking //////
@@ -103,6 +103,9 @@ export const Admin = () => {
 
   const handleTimeChange = (time: string) => {
     setUpdatedBooking({ ...updatedBooking, time });
+  };
+  const NavigateToHomePage = () => {
+    window.location.href = "/admin";
   };
 
   return (
@@ -215,6 +218,15 @@ export const Admin = () => {
               }
             />
             <button onClick={sendChangedData}>Update Booking</button>
+          </div>
+        )}
+        {showChangedMessage && (
+          <div>
+            <div>
+              Changes have been made <br />
+              Continue to login
+            </div>
+            <button onClick={NavigateToHomePage}>Continue</button>
           </div>
         )}
       </div>
