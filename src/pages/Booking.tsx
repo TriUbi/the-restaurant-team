@@ -181,13 +181,10 @@ export const Booking = () => {
                 <header className="section-header">
                   <p>
                     Välkommen att boka ditt bord online. <br />
-                    Vänligen ange antal gäster och dag ni vill ankomma...
-                    <br />
-                    I nästa slide väljer ni tid samt ser ifall eran valda tid
-                    och dag är tillgänglig. <br />
+                    Välj datum och tid som passar er bäst!
                   </p>
                 </header>
-                <hr />
+                
               </section>
               <form
                 className="input-form"
