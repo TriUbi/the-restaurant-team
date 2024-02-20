@@ -6,6 +6,7 @@ export const Home = () => {
     return <>
     
      <div className='container'>
+        <div className='overlay'></div>
          <video src={bannerVideo} autoPlay loop muted playsInline />
         <div className='content'>
             
@@ -19,7 +20,7 @@ export const Home = () => {
         </div>
     <section className='main-section'>
        
-        <div>
+        <div className='main-text-content-container'>
             <div className='main-text-content'>
                 <h3>Welcome!</h3>
                 <p>TastyBurger is Sweden's oldest burger chain!
