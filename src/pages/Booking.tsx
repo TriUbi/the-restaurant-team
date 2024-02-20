@@ -14,7 +14,6 @@ export const Booking = () => {
 
   /////////////////// States ////////////////////
 
-
   const [date, setDate] = useState("");
   const [userInputNumber, setUserInputNumber] = useState("");
 
@@ -30,12 +29,11 @@ export const Booking = () => {
 
   const [newCustomer, setNewCustomer] = useState<INewCustomer>({
     name: "",
-    lastName: "",
+    lastname: "",
     email: "",
     phone: "",
   });
   const [bookings, setBookings] = useState<IBooking[]>([]);
-
 
   //////////////// Hämta alla bokningar från API ////////////////////
 
@@ -129,11 +127,11 @@ export const Booking = () => {
   const NavigateToHomePage = () => {
     window.location.href = "/";
   };
-    // Skapa bokning på "Slutför" knappen
+  // Skapa bokning på "Slutför" knappen
   const CreateBooking = () => {
     if (
       newCustomer.name === "" ||
-      newCustomer.lastName === "" ||
+      newCustomer.lastname === "" ||
       newCustomer.email === "" ||
       newCustomer.phone === ""
     ) {
@@ -143,7 +141,7 @@ export const Booking = () => {
       setShowCustomerForm(false);
       let customer = new Customer(
         newCustomer.name,
-        newCustomer.lastName,
+        newCustomer.lastname,
         newCustomer.email,
         newCustomer.phone
       );
@@ -302,11 +300,11 @@ export const Booking = () => {
                       type="text"
                       name="lastName"
                       placeholder="Efternamn"
-                      value={newCustomer.lastName}
+                      value={newCustomer.lastname}
                       onChange={(e) =>
                         setNewCustomer({
                           ...newCustomer,
-                          lastName: e.target.value,
+                          lastname: e.target.value,
                         })
                       }
                     />
