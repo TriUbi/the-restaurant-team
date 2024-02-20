@@ -170,7 +170,7 @@ export const Booking = () => {
   /////////////////////////////// HTML struktur för Bookingsidan ////////////////////////////
   return (
     <>
-      <div className="body">
+      <div className="bodyn">
         <div className="leftside">
           <div className="header">
             <h3 className="header-h4">Restaurang TastyBurgers</h3>
@@ -282,7 +282,7 @@ export const Booking = () => {
                     </div>
                   )}
 
-                  <div className="input-div">
+                  <div className="input-divs">
                     <input
                       className="input-text"
                       type="text"
@@ -294,7 +294,7 @@ export const Booking = () => {
                       }
                     />
                   </div>
-                  <div className="input-div">
+                  <div className="input-divs">
                     <input
                       className="input-text"
                       type="text"
@@ -309,7 +309,7 @@ export const Booking = () => {
                       }
                     />
                   </div>
-                  <div className="input-div">
+                  <div className="input-divs">
                     <input
                       className="input-text"
                       type="text"
@@ -324,7 +324,7 @@ export const Booking = () => {
                       }
                     />
                   </div>
-                  <div className="input-div">
+                  <div className="input-divs">
                     <input
                       className="input-text"
                       type="text"
@@ -354,12 +354,12 @@ export const Booking = () => {
           )}
           {showBookedMessage && (
             <>
-              <div className="input-div">
+              <div className="input-divs">
                 <p className="end-message">
                   Din bokning är nu skapad! Vi ser fram emot erat besök.
                 </p>
               </div>
-              <div className="input-div">
+              <div className="input-divs">
                 <button className="time-btn" onClick={NavigateToHomePage}>
                   Till Start
                 </button>
