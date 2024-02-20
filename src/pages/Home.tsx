@@ -4,24 +4,21 @@ import '../styles/Home.scss';
 
 export const Home = () => {
     return <>
-   
-     <div className='main-banner'>
-     <div className="overlay"></div>
-        <video src={bannerVideo} autoPlay loop muted />
-        <div className='banner-content'>
+    
+     <div className='container'>
+         <video src={bannerVideo} autoPlay loop muted playsInline />
+        <div className='content'>
+            
         <h1>Welcome to TastyBurger: Where Burger Dreams Come True!</h1>
         <p>Book a table for dinner & elevate your dining experience with us. Book now and savor the moment</p>
-         <button>Reserve Now!</button>
-        </div>
-    </div>
-  
-    <section>
-        <div className="under-banner">
+         <a href="#">RESERVE NOW!</a>
+         </div>
+    </div> 
+ <div className="under-banner">
             <img src="TastyBurgerImg/grillade-hamburgers.jpg" alt="grillade burgers"/>
         </div>
-    </section>
-
     <section className='main-section'>
+       
         <div>
             <div className='main-text-content'>
                 <h3>Welcome!</h3>
