@@ -2,7 +2,7 @@ import { ChangeEvent, useEffect, useState } from "react";
 import "./../styles/Admin.scss";
 import { IBooking } from "../models/IBooking";
 import axios from "axios";
-import { Bookings } from "../models/Booking";
+
 
 export const Admin = () => {
   const restaurantID = "65cdf38894d2af1c6aeae91d";
