@@ -180,13 +180,10 @@ export const Booking = () => {
               <section className="section-container">
                 <header className="section-header">
                   <div className="text-div-container">
-                  <p>
-                   Låt oss skapa magiska smakögonblick tillsammans!
-                  </p>
-                  <p> Välj datum och tid som passar er bäst!</p>
+                    <p>Låt oss skapa magiska smakögonblick tillsammans!</p>
+                    <p> Välj datum och tid som passar er bäst!</p>
                   </div>
                 </header>
-                
               </section>
               <form
                 className="input-form"
@@ -215,12 +212,13 @@ export const Booking = () => {
                   <Calendar
                     onClickDay={(value) => handleCalendarClick(value)}
                     value={date}
+                    minDate={new Date()}
                   />
                 </div>
                 {showErrorForDate && (
                   <div className="error-message">Vänligen ange datum</div>
                 )}
-               
+
                 <button
                   className="next-button"
                   onClick={CheckIfAvailableTables}
@@ -228,7 +226,7 @@ export const Booking = () => {
                   Nästa
                 </button>
               </form>
-            
+
               <section className="times-section">
                 <div className="times-div">
                   {time18Button && (
