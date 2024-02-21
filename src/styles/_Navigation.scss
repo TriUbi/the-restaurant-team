@@ -1,6 +1,7 @@
 nav{
     padding: 30px;
     width: 150px ;
+
     ul{
         list-style: none;
         padding: 0;
@@ -10,6 +11,8 @@ nav{
     }
 
     li{
+        border-left: 1px solid whitesmoke;
+        padding: 10px;
         .active{
             border-bottom: 2px solid white;
             padding: 2px;

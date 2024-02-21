@@ -16,6 +16,8 @@ export const Home = () => {
          <a href="#">RESERVE NOW!</a>
          </div>
     </div> 
+
+
  <div className="under-banner">
             <img src="TastyBurgerImg/grillade-hamburgers.jpg" alt="grillade burgers"/>
         </div>
