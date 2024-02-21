@@ -188,6 +188,7 @@ export const Admin = () => {
                 return (
                   <div key={allBookings._id} className="li-div">
                     <li key={allBookings._id}>
+                      BookingID: {allBookings._id}
                       Date: {allBookings.date} Time:
                       {allBookings.time} Guests:{allBookings.numberOfGuests}
                     </li>
