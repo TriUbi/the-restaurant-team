@@ -8,6 +8,7 @@ import AdmingBookingItem from "../components/AdminBookingItem";
 export const Admin = () => {
   const restaurantID = "65cdf38894d2af1c6aeae91d";
 
+ // State variables
   const [bookings, setBookings] = useState<IBooking[]>([]);
   const [showAdmin, setShowAdmin] = useState(false);
   const [showButton, setShowButton] = useState(true);
@@ -16,13 +17,14 @@ export const Admin = () => {
   const [password, setPassword] = useState("");
   const [showBookingDone, setShowBookingDone] = useState(true);
 
+// Error handling states
   const [showErrorForCustomer, setShowErrorForCustomer] = useState(false);
   const [showErrorForInput, setShowErrorForInput] = useState(false);
   const [showErrorForDate, setShowErrorForDate] = useState(false);
 
+ // States for booking updates
   const [showChange, setShowChange] = useState(false);
   const [showChangedMessage, setShowChangedMessage] = useState(false);
-
   const [updatedBooking, setUpdatedBooking] = useState<IBooking>({
     _id: "",
     restaurantId: restaurantID,
@@ -32,6 +34,7 @@ export const Admin = () => {
     customerId: "",
   });
 
+  // Fetch bookings on component mount
   useEffect(() => {
     axios
       .get<IBooking[]>(
@@ -42,10 +45,14 @@ export const Admin = () => {
       });
   }, []);
 
+
+// Switch to login view
   const handleSwitch = () => {
     setShowLogIn(true);
     setShowButton(false);
   };
+
+// Login function
   const LogIn = () => {
     if (
       userName === "admin" ||
@@ -59,6 +66,7 @@ export const Admin = () => {
     }
   };
 
+  // Handle booking change request
   const handleBookingChange = (bookingID: string, CustomerID: string) => {
     setShowChange(true);
     setShowAdmin(false);
@@ -69,10 +77,9 @@ export const Admin = () => {
     });
   };
 
+  // Send updated booking data to the server
   const sendChangedData = async () => {
-
     if (!updatedBooking.date || !updatedBooking.numberOfGuests) {
-    
       setShowErrorForDate(!updatedBooking.date);
       setShowErrorForInput(!updatedBooking.numberOfGuests);
       return;
@@ -101,6 +108,7 @@ export const Admin = () => {
     
     }
   };
+
   ///// Removes a booking //////
   const handleRemoveBooking = async (bookingID: string) => {
     const response = await axios.delete(
@@ -113,11 +121,13 @@ export const Admin = () => {
 
     setShowBookingDone(true);
   };
-  ///////////////////////////////////////////////////////////////
 
+  // Handle time change
   const handleTimeChange = (time: string) => {
     setUpdatedBooking({ ...updatedBooking, time });
   }; 
+
+  // Navigate to home page
   const NavigateToHomePage = () => {
     window.location.href = "/admin";
   };
