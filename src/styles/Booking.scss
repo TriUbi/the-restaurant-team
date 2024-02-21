@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
 }
+
 .bodyn {
   display: flex;
   align-items: center;
@@ -79,6 +80,15 @@ p {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+}
+
+.extra-form-div {
+  padding: 30px;
+  font-size: 20px;
+}
+.info-booking-text{
+  font-size: 20px;
 }
 
 .input-calendar {
@@ -99,9 +109,6 @@ p {
   color: red;
   font-weight: 500;
 }
-.input-form {
-  text-align: center;
-}
 .timesavailable {
   display: flex;
   align-items: center;
@@ -116,14 +123,14 @@ p {
   font-size: 21px;
 }
 .form-div {
-  border: 1px solid black;
-  height: 500px;
-  width: 500px;
+  border: 2px solid black;
+  padding: 0px 20px 20px 20px;
+  margin-top: 30px;
+  box-shadow: 0 0 10px 5px #000000;
 }
-.input-divs {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.input-text{
+  font-size: 15px;
+  width: 70%;
 }
 .timestext {
   text-align: center;
@@ -166,6 +173,7 @@ p {
   border: 1px solid #a0a096;
   font-family: Arial, Helvetica, sans-serif;
   line-height: 1.125em;
+  box-shadow: 0 0 10px 5px #000000;
 }
 
 .react-calendar--doubleView {

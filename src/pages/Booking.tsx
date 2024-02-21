@@ -266,13 +266,15 @@ export const Booking = () => {
           {showCustomerForm && (
             <div className="customer-details">
               <div>
+                <div className="extra-form-div">
                 <h3>
-                  Vänligen fyll i resterande uppgifter för att slutföra er
-                  bokning.
+                Unlock the full experience by providing the remaining details to complete your booking. Your dream getaway awaits, let's make it a reality together!
                 </h3>
-                <div>
-                  Antal gäster: {userInputNumber} klockan: {chosenTime} datum:
-                  {date}
+                </div>
+                <div className="info-booking-text">
+                  Guest: {userInputNumber} <br /> 
+                  Time: {chosenTime} <br /> 
+                  Date: {date}
                 </div>
               </div>
               <form
