@@ -179,10 +179,12 @@ export const Booking = () => {
             <div>
               <section className="section-container">
                 <header className="section-header">
+                  <div className="text-div-container">
                   <p>
-                    Välkommen att boka ditt bord online. <br />
-                    Välj datum och tid som passar er bäst!
+                   Låt oss skapa magiska smakögonblick tillsammans!
                   </p>
+                  <p> Välj datum och tid som passar er bäst!</p>
+                  </div>
                 </header>
                 
               </section>
@@ -218,7 +220,7 @@ export const Booking = () => {
                 {showErrorForDate && (
                   <div className="error-message">Vänligen ange datum</div>
                 )}
-                <hr />
+               
                 <button
                   className="next-button"
                   onClick={CheckIfAvailableTables}
@@ -226,7 +228,7 @@ export const Booking = () => {
                   Nästa
                 </button>
               </form>
-              <hr />
+            
               <section className="times-section">
                 <div className="times-div">
                   {time18Button && (
