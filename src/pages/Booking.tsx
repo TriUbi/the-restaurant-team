@@ -176,9 +176,6 @@ export const Booking = () => {
     <>
       <div className="bodyn">
         <div className="leftside">
-          <div className="header">
-            <h3 className="header-h4">Restaurang TastyBurgers</h3>
-          </div>
           {ShowForm && (
             <div>
               <section className="section-container">

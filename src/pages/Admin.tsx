@@ -15,6 +15,10 @@ export const Admin = () => {
   const [password, setPassword] = useState("");
   const [showBookingDone, setShowBookingDone] = useState(true);
 
+  const [showErrorForCustomer, setShowErrorForCustomer] = useState(false);
+  const [showErrorForInput, setShowErrorForInput] = useState(false);
+  const [showErrorForDate, setShowErrorForDate] = useState(false);
+
   const [showChange, setShowChange] = useState(false);
   const [showChangedMessage, setShowChangedMessage] = useState(false);
 
@@ -49,8 +53,11 @@ export const Admin = () => {
     ) {
       setShowAdmin(true);
       setShowLogIn(false);
+    } else {
+      setShowErrorForCustomer(true);
     }
   };
+
   const handleBookingChange = (bookingID: string, CustomerID: string) => {
     setShowChange(true);
     setShowAdmin(false);
@@ -62,6 +69,14 @@ export const Admin = () => {
   };
 
   const sendChangedData = async () => {
+
+    if (!updatedBooking.date || !updatedBooking.numberOfGuests) {
+    
+      setShowErrorForDate(!updatedBooking.date);
+      setShowErrorForInput(!updatedBooking.numberOfGuests);
+      return;
+    }
+
     const updatedBookingData = {
       id: updatedBooking._id,
       restaurantId: restaurantID,
@@ -71,14 +86,19 @@ export const Admin = () => {
       customerId: updatedBooking.customerId,
     };
 
-    const response = await axios.put(
-      "https://school-restaurant-api.azurewebsites.net/booking/update/" +
-        updatedBookingData.id,
-      updatedBookingData
-    );
-
-    setShowChangedMessage(true);
-    setShowChange(false);
+    try {
+      const response = await axios.put(
+        "https://school-restaurant-api.azurewebsites.net/booking/update/" +
+          updatedBookingData.id,
+        updatedBookingData
+      );
+  
+      setShowChangedMessage(true);
+      setShowChange(false);
+    } catch (error) {
+      console.error("Error updating booking:", error);
+    
+    }
   };
   ///// Removes a booking //////
   const handleRemoveBooking = async (bookingID: string) => {
@@ -96,7 +116,7 @@ export const Admin = () => {
 
   const handleTimeChange = (time: string) => {
     setUpdatedBooking({ ...updatedBooking, time });
-  };
+  }; 
   const NavigateToHomePage = () => {
     window.location.href = "/admin";
   };
@@ -112,8 +132,14 @@ export const Admin = () => {
         {showLogIn && (
           <div className="admin-container">
             <div className="div-text">
-                  <h4> Welcome to the Adminpage</h4>
+                  <h4> Welcome to the Adminportal</h4>
+                  <p> Our new booking system makes it easy for us to adjust reservations on the fly. This means smoother operations and happier customers. Let's use this tool to work together seamlessly and make our guests' experiences even better!
+            </p>
+            <div className="div-text-2"> 
+              <p> Are you part of our lovely staff?</p>
                   <p> Please log in to continue:</p>
+                  </div>
+           
                 </div>
               <div className="input-div-admin">
                 
@@ -139,6 +165,12 @@ export const Admin = () => {
                         setPassword(e.target.value)
                       }
                     />
+                    {showErrorForCustomer && (
+                       <div className="error-message">
+                        Incorrect username or password. Please try again.
+                        </div>
+                        )}
+
                   </div>
                   <div className="btn-div">
                     <button className="btn" onClick={LogIn}>
@@ -191,6 +223,9 @@ export const Admin = () => {
                 setUpdatedBooking({ ...updatedBooking, date: e.target.value })
               }
             />
+             {showErrorForDate && (
+                  <div className="error-message">Vänligen ange datum</div>
+                )}
            <p className="admin-change-text"> Choose different time:</p>
             <button className="change-button" onClick={() => handleTimeChange("18:00")}>
               18:00
@@ -200,7 +235,10 @@ export const Admin = () => {
             </button>
             <p className="admin-change-text">Choose amount of guests:</p>
             <input className="admin-change-forum"
-              type="number"
+               type="number"
+               min={1}
+               max={6}
+               placeholder="Ange antalet gäster 1-6"
               value={updatedBooking.numberOfGuests}
               onChange={(e) =>
                 setUpdatedBooking({
@@ -209,6 +247,11 @@ export const Admin = () => {
                 })
               }
             />
+            {showErrorForInput && (
+                  <div className="error-message">
+                    Vänligen ange antalet gäster
+                  </div>
+                )}
             <button className="change-button" onClick={sendChangedData}>Update Booking</button>
           </div>
         )}

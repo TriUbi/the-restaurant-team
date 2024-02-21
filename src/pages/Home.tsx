@@ -13,9 +13,11 @@ export const Home = () => {
             
         <h1>Welcome to TastyBurger: Where Burger Dreams Come True!</h1>
         <p>Book a table for dinner & elevate your dining experience with us. Book now and savor the moment</p>
-         <a href="#">RESERVE NOW!</a>
+         <a href="/Booking">RESERVE NOW!</a>
          </div>
     </div> 
+
+
  <div className="under-banner">
             <img src="TastyBurgerImg/grillade-hamburgers.jpg" alt="grillade burgers"/>
         </div>

@@ -4,8 +4,12 @@
 }
 .bodyn {
   display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 100px;
   width: 100vw;
-  height: 100vh;
+  height: 80vh;
   background-color: white;
 }
 
