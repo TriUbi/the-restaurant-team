@@ -268,7 +268,7 @@ export const Booking = () => {
               <div>
                 <div className="extra-form-div">
                 <h3>
-                Unlock the full experience by providing the remaining details to complete your booking. Your dream getaway awaits, let's make it a reality together!
+                Unlock the full experience by providing the remaining details to complete your booking.
                 </h3>
                 </div>
                 <div className="info-booking-text">

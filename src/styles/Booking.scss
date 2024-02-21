@@ -338,3 +338,38 @@ p {
   padding-top: 200px;
   font-size: 24px;
 }
+
+@media only screen and (max-width: 720px) {
+  .bodyn {
+    flex-direction: column; /* Stack elements vertically */
+    height: auto; /* Adjust height as per content */
+  }
+}
+
+
+/* Other styles remain the same */
+
+.form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.extra-form-div {
+  padding: 30px;
+  font-size: 20px;
+}
+
+.info-booking-text {
+  font-size: 20px;
+}
+
+.customer-details {
+  text-align: center;
+}
+
+.end-message {
+  padding-top: 200px;
+  font-size: 24px;
+}
