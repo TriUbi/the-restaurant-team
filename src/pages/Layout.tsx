@@ -1,3 +1,4 @@
+import { Footer } from "../components/Footer";
 import { Navigation } from "../components/Navigation";
 import "./../styles/_Navigation.scss";
 import { Outlet } from "react-router-dom";
@@ -11,7 +12,9 @@ export const Layout = () => {
       <main>
         <Outlet />
       </main>
-      <footer></footer>
+      <footer>
+        <Footer/>
+      </footer>
     </>
   );
 };

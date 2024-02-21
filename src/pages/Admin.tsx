@@ -111,12 +111,12 @@ export const Admin = () => {
         )}
         {showLogIn && (
           <div className="admin-container">
-            <div className="container-div">
-              <div className="input-div-admin">
-                <div className="div-text">
-                  Welcome to the Adminpage <br />
-                  Please log in to continue:
+            <div className="div-text">
+                  <h4> Welcome to the Adminpage</h4>
+                  <p> Please log in to continue:</p>
                 </div>
+              <div className="input-div-admin">
+                
                 <div>
                   <div>
                     <input
@@ -147,7 +147,6 @@ export const Admin = () => {
                   </div>
                 </div>
               </div>
-            </div>
           </div>
         )}
         {showAdmin && (
