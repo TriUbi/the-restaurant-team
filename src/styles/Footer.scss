@@ -44,35 +44,24 @@ list-style: none;
 .col-footer ul li a:hover{
     opacity:1 ;
 }
-.col-footer input {
-    border: none;
-    width: 250px;
-    height: 45px;
-    display: block;
-    padding-left: 20px;
-    margin: 14px 0;
-}
-.col-footer .input-submit{
-    padding: 0 20px;
-    background-color: #c50c0c;
-    color: #fff;
-}
+
 
 .logo-footer img {
 width: 250px;
 }
 
-@media (max-width: 600px){
+@media (max-width: 720px){
     footer .row-footer {
         flex-direction: column;
+        justify-content: center;
+        align-items: center;
         padding: 20px 30px;
     }
 
     footer .col-footer ul {
         margin-left:20px;
         margin-bottom: 20px;
-    }
-    .footer-col input {
-        width: 100px;
+        align-items: center;
+        margin-left: 0; 
     }
 }
