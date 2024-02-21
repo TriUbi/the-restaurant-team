@@ -103,16 +103,16 @@ export const Admin = () => {
 
   return (
     <>
-      <div className="body">
+      <div className="body-admin">
         {showButton && (
-          <div>
+          <div className="login-button">
             <button onClick={handleSwitch}>Log in</button>
           </div>
         )}
         {showLogIn && (
-          <div className="container">
+          <div className="admin-container">
             <div className="container-div">
-              <div className="input-div">
+              <div className="input-div-admin">
                 <div className="div-text">
                   Welcome to the Adminpage <br />
                   Please log in to continue:
@@ -161,12 +161,12 @@ export const Admin = () => {
                       {allBookings.time} Guests:{allBookings.numberOfGuests}
                     </li>
 
-                    <button
+                    <button className="change-booking-btn"
                       onClick={() => handleRemoveBooking(allBookings._id)}
                     >
                       Remove
                     </button>
-                    <button
+                    <button className="change-booking-btn"
                       onClick={() =>
                         handleBookingChange(
                           allBookings._id,
@@ -184,23 +184,23 @@ export const Admin = () => {
         )}
         {showChange && (
           <div className="update">
-            <p>Choose another date:</p>
-            <input
+            <p >Choose another date:</p>
+            <input className="admin-change-forum"
               type="date"
               value={updatedBooking.date}
               onChange={(e) =>
                 setUpdatedBooking({ ...updatedBooking, date: e.target.value })
               }
             />
-            Choose different time:
-            <button className="Btn" onClick={() => handleTimeChange("18:00")}>
+           <p className="admin-change-text"> Choose different time:</p>
+            <button className="change-button" onClick={() => handleTimeChange("18:00")}>
               18:00
             </button>
-            <button className="Btn" onClick={() => handleTimeChange("21:00")}>
+            <button className="change-button" onClick={() => handleTimeChange("21:00")}>
               21:00
             </button>
-            Choose amount of guests:
-            <input
+            <p className="admin-change-text">Choose amount of guests:</p>
+            <input className="admin-change-forum"
               type="number"
               value={updatedBooking.numberOfGuests}
               onChange={(e) =>
@@ -210,16 +210,16 @@ export const Admin = () => {
                 })
               }
             />
-            <button onClick={sendChangedData}>Update Booking</button>
+            <button className="change-button" onClick={sendChangedData}>Update Booking</button>
           </div>
         )}
         {showChangedMessage && (
           <div>
-            <div>
+            <div className="admin-change-continue">
               Changes have been made <br />
               Continue to login
             </div>
-            <button onClick={NavigateToHomePage}>Continue</button>
+            <button className="change-button" onClick={NavigateToHomePage}>Continue</button>
           </div>
         )}
       </div>
