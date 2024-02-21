@@ -26,6 +26,8 @@ export const Booking = () => {
   const [showErrorForInput, setShowErrorForInput] = useState(false);
   const [showErrorForDate, setShowErrorForDate] = useState(false);
   const [showErrorForCustomer, setShowErrorForCustomer] = useState(false);
+  const [fullyBooked, setFullyBooked] = useState(false);
+  const [showErrorForPhone, setShowErrorForPhone] = useState(false)
 
   const [newCustomer, setNewCustomer] = useState<INewCustomer>({
     name: "",
@@ -110,6 +112,9 @@ export const Booking = () => {
       } else {
         console.log("Its fully booked");
       }
+      if (bookedTablesat18 && bookedTablesat21 === amountOfTables) {
+        setFullyBooked(true);
+      }
     }
   };
 
@@ -136,6 +141,8 @@ export const Booking = () => {
       newCustomer.phone === ""
     ) {
       setShowErrorForCustomer(true);
+    } else if (newCustomer.phone.length < 10 || newCustomer.phone.length > 10) {
+      setShowErrorForPhone(true);
     } else {
       setShowBookedMessage(true);
       setShowCustomerForm(false);
@@ -246,6 +253,11 @@ export const Booking = () => {
                       </button>
                     </div>
                   )}
+                  {fullyBooked && (
+                    <div className="error-message">
+                      Denna dag är tyvärr fullbokad, vänligen välj annat datum
+                    </div>
+                  )}
                 </div>
               </section>
             </div>
@@ -274,6 +286,11 @@ export const Booking = () => {
                     <div className="error-message">
                       Vänligen fyll i alla fälten
                     </div>
+                  )}
+                  {showErrorForPhone && (
+                    <div className="error-message">
+                    Telefonnummer skall bestå av 10 siffror
+                  </div>
                   )}
 
                   <div className="input-divs">
