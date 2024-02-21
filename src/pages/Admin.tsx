@@ -2,6 +2,7 @@ import { ChangeEvent, useEffect, useState } from "react";
 import "./../styles/Admin.scss";
 import { IBooking } from "../models/IBooking";
 import axios from "axios";
+import AdmingBookingItem from "../components/AdminBookingItem";
 
 
 export const Admin = () => {
@@ -184,35 +185,19 @@ export const Admin = () => {
         {showAdmin && (
           <div className="container">
             <div className="admin-page">
-              {bookings.map((allBookings) => {
+              {bookings.map((booking) => {
                 return (
-                  <div key={allBookings._id} className="li-div">
-                    <li key={allBookings._id}>
-                      Date: {allBookings.date} Time:
-                      {allBookings.time} Guests:{allBookings.numberOfGuests}
-                    </li>
-
-                    <button className="change-booking-btn"
-                      onClick={() => handleRemoveBooking(allBookings._id)}
-                    >
-                      Remove
-                    </button>
-                    <button className="change-booking-btn"
-                      onClick={() =>
-                        handleBookingChange(
-                          allBookings._id,
-                          allBookings.customerId
-                        )
-                      }
-                    >
-                      Change info
-                    </button>
-                  </div>
-                );
-              })}
+                  <AdmingBookingItem
+                  key={booking._id}
+                  booking={booking}
+                  onRemove={handleRemoveBooking}
+                  onChange= {handleBookingChange}
+                  />
+                  )
+                  })}
             </div>
           </div>
-        )}
+    )}
         {showChange && (
           <div className="update">
             <p >Choose another date:</p>
