@@ -1,15 +1,42 @@
 .body-admin{
-  background-color: grey;
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  top: 0;
-  padding-top: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: rgb(16,16,16);
+  padding: 100px;
+  color: #fff;
+
+  li {
+    font-size: 20px;
+    padding: 20px;
+  }
+  .li-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 1px solid;
+    margin-bottom: 30px;
+    background-color: #ccc;
+    color: black;
+    padding: 30px;
+    border-radius: 10px;
+  }
+}
+
+.admin-container {
+  display: flex;
+  flex-direction: column;
+ justify-content: center;
+ align-items: center;
+ text-align: center;
+
+
 }
 
 .input-admin{
-  width: 80%;
+  width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
@@ -39,18 +66,23 @@
   box-sizing: border-box;
 }
 
+.div-text {
+  padding: 20px;
+  color: #fff;
+  font-size: 20px;
+}
 
 .login-button{
   background-color: #c50c0c;
   color: white;
-  border: none;
+  border: 1px solid;
   border-radius: 4px;
   cursor: pointer;
   display: flex;
   margin: auto;
   justify-content: center;
   align-items: center;
-  width:200px;
+  width:180px;
   margin-top: 200px;
 }
 
@@ -98,4 +130,23 @@ button:hover{
   margin: auto;
   justify-content: center;
   align-items: center;
+}
+
+.update {
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px 5px #fff;
+
+  p{
+    padding: 10px;
+    border: 1px solid;
+    border-radius: 10px;
+    margin: 20px;
+  }
+  input {
+    padding: 8px;
+    border-radius: 10px;
+    border: 2px solid;
+  }
+
 }
