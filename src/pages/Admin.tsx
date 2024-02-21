@@ -112,8 +112,14 @@ export const Admin = () => {
         {showLogIn && (
           <div className="admin-container">
             <div className="div-text">
-                  <h4> Welcome to the Adminpage</h4>
+                  <h4> Welcome to the Adminportal</h4>
+                  <p> Our new booking system makes it easy for us to adjust reservations on the fly. This means smoother operations and happier customers. Let's use this tool to work together seamlessly and make our guests' experiences even better!
+            </p>
+            <div className="div-text-2"> 
+              <p> Are you part of our lovely staff?</p>
                   <p> Please log in to continue:</p>
+                  </div>
+           
                 </div>
               <div className="input-div-admin">
                 

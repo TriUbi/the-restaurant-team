@@ -28,11 +28,28 @@
 .admin-container {
   display: flex;
   flex-direction: column;
- justify-content: center;
- align-items: center;
- text-align: center;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  color: #fff;
+  font-size: 20px;
+  border: 1px solid;
+  width: 50%;
+  box-shadow: 0 0 10px 5px #fff;
 
+  h4 {
+    font-size: 35px;
+  }
 
+.div-text-2 {
+  padding-top: 30px;
+}
+  
+.input-div-admin{
+  padding: 15px;
+ 
+}
 }
 
 .input-admin{
@@ -66,11 +83,6 @@
   box-sizing: border-box;
 }
 
-.div-text {
-  padding: 20px;
-  color: #fff;
-  font-size: 20px;
-}
 
 .login-button{
   background-color: #c50c0c;
@@ -90,12 +102,6 @@ button:hover{
   background-color:#871919 ;
 }
 
-.input-div-admin{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-top: 150px;
-}
 
 .change-booking-btn{
   margin-top: 10px;
