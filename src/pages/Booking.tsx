@@ -26,6 +26,7 @@ export const Booking = () => {
   const [showErrorForInput, setShowErrorForInput] = useState(false);
   const [showErrorForDate, setShowErrorForDate] = useState(false);
   const [showErrorForCustomer, setShowErrorForCustomer] = useState(false);
+  const [fullyBooked, setFullyBooked] = useState(false);
 
   const [newCustomer, setNewCustomer] = useState<INewCustomer>({
     name: "",
@@ -109,6 +110,9 @@ export const Booking = () => {
         console.log("available tables");
       } else {
         console.log("Its fully booked");
+      }
+      if (bookedTablesat18 && bookedTablesat21 === amountOfTables) {
+        setFullyBooked(true);
       }
     }
   };
@@ -249,6 +253,7 @@ export const Booking = () => {
                       </button>
                     </div>
                   )}
+                  {fullyBooked && <div className="error-message">Denna dag är tyvärr fullbokad, vänligen välj annat datum</div>}
                 </div>
               </section>
             </div>
