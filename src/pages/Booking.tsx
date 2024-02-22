@@ -353,7 +353,7 @@ export const Booking = () => {
                       }
                     />
                   </div>
-                  <p>Jag godkänner att TastyBurgers lagrar mina personuppgifter:</p>
+                  <p className="gdpr-text">I consent to TastyBurgers storing my data:</p>
                   <input type="checkbox"  required/>
 
                   <div className="yeye">
