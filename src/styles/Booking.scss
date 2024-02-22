@@ -3,6 +3,7 @@
   padding: 0;
 }
 
+
 .bodyn {
   display: flex;
   align-items: center;
@@ -10,7 +11,7 @@
   text-align: center;
   margin-top: 100px;
   width: 100vw;
-  height: 80vh;
+  height: 100vh;
   background-color: white;
 }
 
@@ -137,6 +138,8 @@ p {
   font-size: 25px;
   font-weight: bold;
 }
+
+
 .button-div {
   display: flex;
   align-items: center;
@@ -331,6 +334,7 @@ p {
   text-align: center;
   padding: 50px;
 }
+
 .customer-details {
   text-align: center;
 }
@@ -344,8 +348,6 @@ p {
     flex-direction: column; 
     height: auto; 
   }
-}
-
 
 
 
@@ -373,3 +375,7 @@ p {
   padding-top: 200px;
   font-size: 24px;
 }
+}
+
+
+
