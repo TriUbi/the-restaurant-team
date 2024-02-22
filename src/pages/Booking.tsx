@@ -354,7 +354,7 @@ export const Booking = () => {
                     />
                   </div>
                   <p>Jag godkänner att TastyBurgers lagrar mina personuppgifter:</p>
-                  <input type="checkbox" />
+                  <input type="checkbox"  required/>
 
                   <div className="yeye">
                     <button className="next-button" onClick={CreateBooking}>
