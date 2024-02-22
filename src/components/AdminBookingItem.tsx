@@ -2,6 +2,10 @@ import { useState } from "react";
 import { IBooking } from "../models/IBooking";
 import axios from "axios";
 
+
+//interfaces 
+//2 olika gränssnitt 
+
 interface IAdminItemProps {
     booking: IBooking;
     onRemove: (customerId: string) => void;
@@ -15,7 +19,7 @@ interface ICustomer {
     phone: string; 
 }
 
-
+//state
 const AdmingBookingItem = (props: IAdminItemProps) => {
     const [customer, setCustomer]= useState<ICustomer>();
 
@@ -29,17 +33,21 @@ const AdmingBookingItem = (props: IAdminItemProps) => {
         }
     };
   
-
+//rendering med props
     return (
         <div key={props.booking._id} className="li-div">
           <li key={props.booking._id}>
-            Date: {props.booking.date} Time:
-            {props.booking.time} Guests:{props.booking.numberOfGuests}
+            Customer ID: {props.booking.customerId} <br />
+            Date: {props.booking.date}  <br />
+            Time:{props.booking.time} <br />
+            Guests:{props.booking.numberOfGuests}
           </li>
           {customer && (
             <li>
                 Name: {customer?.name} <br />
-                Last Name:  {customer?.lastname}
+                Last Name:  {customer?.lastname} <br />
+                Phone: {customer?.phone} <br />
+                Email: {customer?.email}
             </li>
           )}
 
