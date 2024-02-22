@@ -22,7 +22,7 @@ interface ICustomer {
 //state
 const AdmingBookingItem = (props: IAdminItemProps) => {
     const [customer, setCustomer]= useState<ICustomer>();
-
+//function
     const handleGetCustomer = async () => {
         try {
             const response = await axios.get<ICustomer[]>(
