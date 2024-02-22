@@ -341,13 +341,13 @@ p {
 
 @media only screen and (max-width: 720px) {
   .bodyn {
-    flex-direction: column; /* Stack elements vertically */
-    height: auto; /* Adjust height as per content */
+    flex-direction: column; 
+    height: auto; 
   }
 }
 
 
-/* Other styles remain the same */
+
 
 .form {
   display: flex;
