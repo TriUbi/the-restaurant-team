@@ -27,7 +27,7 @@ export const Booking = () => {
   const [showErrorForDate, setShowErrorForDate] = useState(false);
   const [showErrorForCustomer, setShowErrorForCustomer] = useState(false);
   const [fullyBooked, setFullyBooked] = useState(false);
-  const [showErrorForPhone, setShowErrorForPhone] = useState(false)
+  const [showErrorForPhone, setShowErrorForPhone] = useState(false);
 
   const [newCustomer, setNewCustomer] = useState<INewCustomer>({
     name: "",
@@ -267,13 +267,14 @@ export const Booking = () => {
             <div className="customer-details">
               <div>
                 <div className="extra-form-div">
-                <h3>
-                Unlock the full experience by providing the remaining details to complete your booking.
-                </h3>
+                  <h3>
+                    Unlock the full experience by providing the remaining
+                    details to complete your booking.
+                  </h3>
                 </div>
                 <div className="info-booking-text">
-                  Guest: {userInputNumber} <br /> 
-                  Time: {chosenTime} <br /> 
+                  Guest: {userInputNumber} <br />
+                  Time: {chosenTime} <br />
                   Date: {date}
                 </div>
               </div>
@@ -291,8 +292,8 @@ export const Booking = () => {
                   )}
                   {showErrorForPhone && (
                     <div className="error-message">
-                    Telefonnummer skall bestå av 10 siffror
-                  </div>
+                      Telefonnummer skall bestå av 10 siffror
+                    </div>
                   )}
 
                   <div className="input-divs">
@@ -352,6 +353,8 @@ export const Booking = () => {
                       }
                     />
                   </div>
+                  <p>Jag godkänner att TastyBurgers lagrar mina personuppgifter:</p>
+                  <input type="checkbox" />
 
                   <div className="yeye">
                     <button className="next-button" onClick={CreateBooking}>
