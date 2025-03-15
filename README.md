@@ -12,6 +12,27 @@ Detta är ett skolprojekt som utvecklades som ett team-arbete av:
 
 Detta projekt är en del av vår utbildning och utvecklades som ett grupparbete. Varje teammedlem har bidragit med olika delar av projektet.
 
+## Tekniska Färdigheter som Demonstreras
+
+- **Frontend-utveckling:**
+  - React med TypeScript
+  - Komponentbaserad arkitektur
+  - Responsiv design med Sass/CSS
+  - State management
+  - React Router för navigation
+
+- **Backend-integration:**
+  - Firebase Authentication
+  - Firestore databas
+  - CRUD-operationer
+  - Realtidsuppdateringar
+
+- **Versionshantering & Samarbete:**
+  - Git & GitHub
+  - Agilt teamarbete
+  - Code review
+  - Branching strategier
+
 ## Bidragsgivare
 
 - **Tri Ubi** - [GitHub Profile](https://github.com/TriUbi)
